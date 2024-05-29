@@ -4,7 +4,7 @@ from langchain_google_genai import ChatGoogleGenerativeAI
 
 app = Flask(__name__)
 
-api_key = "AIzaSyBRzRrIKVRDmX7bApGo7OadHabT487kDk4"  # Your API key here
+api_key = "Your API key here"  
 
 # Load the book text
 try:
