@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Information Agent</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            background: url('{{ url_for('static', filename='background.jpg') }}') no-repeat center center fixed;
+            background-size: cover; /* Ensure the image covers the entire screen */
+            background-color: #f0f0f0; /* Mild background color in case the image fails to load */
+        }
+        form {
+            background: rgba(255, 255, 255, 0.9);
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            background-color: #fffacd; /* Mild gold background color for the form */
+            color: #333; /* Text color for the form */
+            text-align: center; /* Center align the elements within the form */
+            font-size: 20px; /* Increase the font size for the form */
+        }
+        input[type="text"], input[type="submit"] {
+            padding: 15px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            background-color: #fff8dc; /* Mild gold background color */
+            color: #333;
+            font-weight: bold; /* Make the text bold */
+            display: block; /* Make input block to fill width of form */
+            margin: 0 auto; /* Center the input box horizontally */
+            font-size: 20px; /* Increase the font size for the input fields */
+        }
+        input[type="submit"] {
+            background-color: #f0e68c; /* Mild gold background color for the button */
+            margin-top: 20px; /* Add some space above the button */
+        }
+        h2 {
+            margin-top: 0;
+        }
+        .response-container {
+            width: 80%; /* Make the response container wider */
+            max-width: 600px; /* Set a max-width to prevent it from becoming too wide on large screens */
+            font-size: 20px; /* Increase the font size for the response text */
+        }
+        p {
+            background-color: #f8f8f8; /* Mild color for the response background */
+            padding: 10px;
+            border: 1px solid #ddd;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ask me anything from the book</h1>
+    <form method="post">
+        <label for="question">Enter your question:</label><br>
+        <input type="text" id="question" name="question" required><br>
+        <input type="submit" value="Ask">
+    </form>
+    <div class="response-container">
+        {% if response %}
+            <h2>Response:</h2>
+            <p>{{ response }}</p>
+        {% endif %}
+        {% if question %}
+            <h2>Your Question:</h2>
+            <p>{{ question }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
